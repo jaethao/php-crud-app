@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once 'config.php';
+require_once 'includes/config.php';
 
 // Define variables and initialize with empty values
 $name = $address = $salary = "";
@@ -54,7 +54,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             $param_salary = $salary;
             $param_id = $id;
 
-            // Attempt to execute the prepared statement
+            //execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records updated successfully. Redirect to landing page
                 header("location: index.php");
@@ -85,12 +85,13 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             // Set parameters
             $param_id = $id;
 
-            // Attempt to execute the prepared statement
+            // execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 $result = mysqli_stmt_get_result($stmt);
 
                 if(mysqli_num_rows($result) == 1){
-                    /* Fetch result row as an associative array. Since the result set contains only one row, we don't need to use while loop */
+                    /* Fetch result row as an associative array. Since the result set
+                    contains only one row, we don't need to use while loop */
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
                     // Retrieve individual field value

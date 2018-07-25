@@ -2,7 +2,7 @@
 // Process delete operation after confirmation
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Include config file
-    require_once 'config.php';
+    require_once 'includes/config.php';
 
     // Prepare a delete statement
     $sql = "DELETE FROM employees WHERE id = ?";
@@ -14,7 +14,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         // Set parameters
         $param_id = trim($_POST["id"]);
 
-        // Attempt to execute the prepared statement
+        // execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Records deleted successfully. Redirect to landing page
             header("location: index.php");

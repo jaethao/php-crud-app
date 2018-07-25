@@ -34,10 +34,10 @@
                         <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
                     </div>
                     <?php
-                    // Include config file
-                    require_once 'config.php';
+                    //Include config file
+                    require_once 'includes/config.php';
 
-                    // Attempt select query execution
+                    //select query execution
                     $sql = "SELECT * FROM employees";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
